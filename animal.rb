@@ -1,44 +1,41 @@
 class Dog
+
+  attr_reader :name, :age
+
+  def name=(value)
+    if value == ''
+      raise "Name can't be blank!"
+    end
+      @name=value
+  end
+
+  def age=(value)
+    if value < 0
+      raise "An age of #{value} isn't valid!"
+    end
+      @age=value
+  end
+
+
   def  talk
-    puts "Bark."
+    puts "#{@name} says bark."
   end
 
   def move(destination)
-    puts "Running to the #{destination}"
+    puts "#{@name} running to the #{destination}"
+  end
+
+  def report_age
+    puts "#{@name} is #{@age} years old!"
   end
 end
 
-class Cat
-  def talk
-    puts "Meow"
-  end
 
-  def move(destination)
-    puts "Running to the #{destination}"
-  end
-end
-
-class Bird
-  def talk
-    puts "Chirip! Chirip!"
-  end
-
-  def move(destination)
-    puts "Flying to the #{destination}"
-  end
-end
 
 puts "=" * 30
 rex = Dog.new
+
+rex.age=-1
 rex.talk
 rex.move('home')
-
-puts "=" * 30
-tom = Cat.new
-tom.talk
-tom.move("Jerry")
-
-puts "=" * 30
-angry = Bird.new
-angry.talk
-angry.move('three')
+rex.report_age
