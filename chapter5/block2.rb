@@ -1,5 +1,5 @@
-def give(&my_block)
-    my_block.call("2 turtle doves", "1 partrige")
+def give
+    yield("2 turtle doves", "1 partrige")
 end 
 
 give do |present1, present2|
