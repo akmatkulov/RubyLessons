@@ -1,12 +1,12 @@
-contents = []
-File.open("sample.txt") do |file|
-    contents = file.readlines
+lines = []
+
+File.open("reviews.txt") do |file|
+    lines = file.readlines
 end 
 
-puts contents
+relevant_line = lines.find_all { |line| line.include?("Truncated")}
 
-
-
+puts relevant_line
 
 
 
